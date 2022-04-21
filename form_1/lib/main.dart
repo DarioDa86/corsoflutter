@@ -32,36 +32,50 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Column(
-                children: [],
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.widgets),
-              title: Text("Menu options"),
-            ),
-            ListTile(
-              leading: Icon(Icons.loop),
-              title: Text("Refunds"),
-            ),
-            ListTile(
-              leading: Icon(Icons.credit_card),
-              title: Text("Transactions"),
-            ),
-            ListTile(
-              leading: Icon(Icons.tune),
-              title: Text("Settings"),
-            ),
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ),
-    );
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Column(
+                  children: [
+                    Icon(Icons.close),
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.widgets),
+                title: Text("Menu options"),
+              ),
+              ListTile(
+                leading: Icon(Icons.loop),
+                title: Text("Refunds"),
+              ),
+              ListTile(
+                leading: Icon(Icons.credit_card),
+                title: Text("Transactions"),
+              ),
+              ListTile(
+                leading: Icon(Icons.tune),
+                title: Text("Settings"),
+              ),
+            ],
+          ),
+        ),
+        body: Container(
+          child: Column(
+
+            children: [
+              Image.asset('assets/images/login.jpg'),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Login"),
+              ),
+
+            ],
+          ),
+        ));
   }
 }
