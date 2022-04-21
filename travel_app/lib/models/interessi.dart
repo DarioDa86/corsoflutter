@@ -1,5 +1,5 @@
-/* 
-*/
+import 'package:flutter/material.dart';
+
 enum Interessi{
   mare,
   montagna,
@@ -7,4 +7,23 @@ enum Interessi{
   piscina,
   bosco,
   spa
+}
+
+extension InteressiExtension on Interessi{
+  IconData get icon {
+    switch(this){
+      case Interessi.mare:
+        return Icons.android;
+      case Interessi.montagna:
+        return Icons.style;
+      case Interessi.lago:
+        return Icons.circle;
+      case Interessi.piscina:
+        return Icons.local-cafè;
+      case Interessi.bosco:
+        return Icons.ac_unit_rounded;
+      case Interessi.spa:
+        return Icons.style;
+    }
+  }
 }
