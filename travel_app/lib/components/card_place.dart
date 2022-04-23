@@ -11,18 +11,16 @@ class CardPlace extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => DettaglioMeta()
-            )
-        ),
-          child: Card(
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => DettaglioMeta(meta))),
+        child: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Expanded(
                   child: AspectRatio(
-                    aspectRatio: 3/2,
+                    aspectRatio: 3 / 2,
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
@@ -38,15 +36,24 @@ class CardPlace extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 4.0),
-                  child: Text(meta.city, style: TextStyle(fontSize: 16),),
+                  child: Text(
+                    meta.city,
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.pin_drop, color: Colors.blue, size: 12,),
-                      Text(meta.country, style: const TextStyle(color: Colors.blue, fontSize: 12)),
+                      const Icon(
+                        Icons.pin_drop,
+                        color: Colors.blue,
+                        size: 12,
+                      ),
+                      Text(meta.country,
+                          style: const TextStyle(
+                              color: Colors.blue, fontSize: 12)),
                     ],
                   ),
                 )
