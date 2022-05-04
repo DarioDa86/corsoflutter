@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
           children: const [
             Categorie(),
             SizedBox(height: 24),
-            Ricerca(),
+            Ricerca(amIOnHomepage: true,),
             PopularPlace(height: 170),
             Recommended(height: 170)
           ],

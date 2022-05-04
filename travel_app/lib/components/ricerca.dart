@@ -1,21 +1,36 @@
 import 'package:flutter/material.dart';
 
 class Ricerca extends StatelessWidget {
-  const Ricerca({Key? key}) : super(key: key);
+  final bool amIOnHomepage;
+  final Function(String)? callback;
+  const Ricerca({this.amIOnHomepage = false, this.callback, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(
+        Expanded(
             child: TextField(
-              decoration: InputDecoration(
+              onTap: amIOnHomepage
+                  ?  () {
+                FocusScope.of(context).unfocus();
+                Navigator.of(context).pushNamed('/search');
+              }
+                  : null,
+              onChanged: callback,
+              readOnly: amIOnHomepage,
+              autofocus: !amIOnHomepage,
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   suffixIcon: Icon(Icons.search),
                   hintText: 'Search'),
             )),
         IconButton(
-            onPressed: () => print('filtra'),
+            onPressed: () {
+              if(Scaffold.of(context).hasEndDrawer){
+                Scaffold.of(context).openEndDrawer();
+              }
+            },
             icon: const Icon(Icons.filter_list))
       ],
     );
